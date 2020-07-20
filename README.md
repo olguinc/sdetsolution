@@ -1,5 +1,5 @@
 # Deviget Challenge
-Automation challenge for Deviget.
+_Automation challenge for Deviget._
 
 ## How to run the test
 1.  Once you clone the code, edit chrome driver's path (line 34) in BaseTest class
