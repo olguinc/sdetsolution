@@ -31,7 +31,6 @@ public class BaseTest {
 
     @BeforeTest
     public void classLevelSetup() {
-    	DesiredCapabilities caps = new DesiredCapabilities();
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
 		driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -41,13 +40,13 @@ public class BaseTest {
 
     @BeforeTest
     public void startReport() {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExtentReport.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/ExecutionReport.html");
         // Create an object of Extent Reports
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         extent.setSystemInfo("Application", "aliexpress");
         extent.setSystemInfo("Environment", "Prod");
-        extent.setSystemInfo("User Name", "Carolina Olguin");
+        extent.setSystemInfo("User", "Carolina Olguin");
         htmlReporter.config().setDocumentTitle("Test Execution Report ");
         // Name of the report
         htmlReporter.config().setReportName("Test Suite ");
