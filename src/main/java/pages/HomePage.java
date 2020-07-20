@@ -7,7 +7,7 @@ import base.BasePage;
 
 public class HomePage extends BasePage {
 
-	private final String SEARCH_BOX = "[id='search-key']";
+	private final String SEARCH_BOX = "search-key";
 	private final String SEARCH_BUTTON = ".search-button";
 	private final String AD_CLOSE_BUTTON = ".close-layer";
 
@@ -18,7 +18,10 @@ public class HomePage extends BasePage {
 	public void search(String text) {
 		waitForElementVisibility(By.cssSelector(AD_CLOSE_BUTTON));
 		clickButton(By.cssSelector(AD_CLOSE_BUTTON));
-		enterText(By.cssSelector(SEARCH_BOX), text);
+		
+		waitForElementClickable(By.id(SEARCH_BOX));
+		enterText(By.id(SEARCH_BOX), text);
+		
 		clickButton(By.cssSelector(SEARCH_BUTTON));
 		sleepSecond(2);
 	}
