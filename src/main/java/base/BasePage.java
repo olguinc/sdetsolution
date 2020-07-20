@@ -34,6 +34,11 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
         driver.findElement(locator).click();
     }
+    
+    public String getText(By locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        return driver.findElement(locator).getText();
+    }
 
     public void waitForElementVisibility(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

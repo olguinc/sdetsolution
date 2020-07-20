@@ -2,6 +2,7 @@ package tests;
 
 import static org.testng.Assert.assertTrue;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseTest;
@@ -25,7 +26,8 @@ public class SecondAdTest extends BaseTest{
         assertTrue(resultsPage.isSecondAdDisplayed(), "Second ad is not displayed");
         
         //Check if there is at least 1 item to buy
-        assertTrue(resultsPage.checkIfListHasItems(), "There is no item to buy");
+        String pageText = resultsPage.getPageContent();
+        assertTrue(pageText.contains("Sort by"), "There is no item to buy");
     }
 
 }

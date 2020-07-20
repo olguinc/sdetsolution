@@ -11,7 +11,7 @@ import base.BasePage;
 public class ResultsPage extends BasePage {
 
 	private final String AD2_CLOSE_BUTTON = ".next-dialog-close";
-	private final String ITEMS_LIST = ".list-items";
+	private final String PAGE_CONTENT = ".page-content";
 
 	public ResultsPage(WebDriver driver) {
 		super(driver);
@@ -19,7 +19,7 @@ public class ResultsPage extends BasePage {
 	}
 
 	public boolean isSecondAdDisplayed() {
-		waitForElementVisibility(By.cssSelector(AD2_CLOSE_BUTTON));
+		sleepSecond(2);
 		return driver.findElement(By.cssSelector(AD2_CLOSE_BUTTON)).isDisplayed();
 	}
 
@@ -28,14 +28,7 @@ public class ResultsPage extends BasePage {
 		waitForElementInvisibility(By.cssSelector(AD2_CLOSE_BUTTON));
 	}
 	
-	public boolean checkIfListHasItems() {
-		List<WebElement> items =  driver.findElements(By.cssSelector(ITEMS_LIST));
-
-		if(items != null)
-		{
-		  return true;
-		}
-		return false;
+	public String getPageContent() {
+		return getText(By.cssSelector(PAGE_CONTENT));
 	}
-
 }
